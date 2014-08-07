@@ -32,3 +32,5 @@ Ensure you have Git and Ruby installed. Then in a console execute the following 
 git clone https://github.com/cullenjett/toy_robot.git
 cd toy_robot
 ruby toy_robot.rb
+
+If the game gets stuck while playing press ctrl-c to escape

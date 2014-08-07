@@ -26,8 +26,14 @@ class ToyRobot
     x_pos = player_input[0].to_i
     y_pos = player_input[1].to_i
     direction = player_input[2].to_s
-    robot.place(x_pos, y_pos, direction)
-    robot.report
+    if robot.place(x_pos, y_pos, direction)
+      robot.report
+    else
+      puts ''
+      puts "Oops, make sure you use coordinates between 1 and 5 and use NORTH, SOUTH, EAST, or WEST."
+      puts "Don't forget to put commas between the arguments."
+      set_robot
+    end
   end
 
   def play_with_robot

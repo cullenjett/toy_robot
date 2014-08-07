@@ -7,7 +7,7 @@ class Robot
 
   def move
     @move_successful = nil
-    
+
     case position[:facing]
       when 'NORTH'
         if position[:y] < 5
@@ -76,11 +76,9 @@ class Robot
 
   def report
     puts ''
-    puts "=> The robot is at the coordinates (#{position[:x]}, #{position[:y]}) and is facing #{position[:facing]}"
+    puts "The robot is at the coordinates (#{position[:x]}, #{position[:y]}) and is facing #{position[:facing]}"
     puts ''
   end
-
-  private
 
   def valid_placement?(x, y, facing)
     (x >= 1 && x <= 5 && y >= 1 && y <= 5 && ['NORTH', 'SOUTH', 'EAST', 'WEST'].include?(facing))
