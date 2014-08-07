@@ -6,30 +6,40 @@ class Robot
   end
 
   def move
+    @move_successful = nil
+    
     case position[:facing]
       when 'NORTH'
         if position[:y] < 5
           position[:y] += 1
+          @move_successful = true
         else
-          puts "The robot can't move in that direction or it will fall off the table!"
+          invalid_move
+          @move_successful = false
         end
       when 'SOUTH'
         if position[:y] > 1
           position[:y] -= 1
+          @move_successful = true
         else
-          puts "The robot can't move in that direction or it will fall off the table!"
+          invalid_move
+          @move_successful = false
         end
       when 'EAST'
         if position[:x] < 5
+          @move_successful = true
           position[:x] += 1
         else
-          puts "The robot can't move in that direction or it will fall off the table!"
+          invalid_move
+          @move_successful = false
         end
       when 'WEST'
         if position[:x] > 1
+          @move_successful = true
           position[:x] -= 1
         else
-          puts "The robot can't move in that direction or it will fall off the table!"
+          invalid_move
+          @move_successful = false
         end
     end
   end
@@ -60,8 +70,14 @@ class Robot
     end
   end
 
+  def valid_move?
+    @move_successful
+  end
+
   def report
-    puts "The robot is at the coordinates #{position[:x]}, #{position[:y]} and is facing #{position[:facing]}"
+    puts ''
+    puts "=> The robot is at the coordinates (#{position[:x]}, #{position[:y]}) and is facing #{position[:facing]}"
+    puts ''
   end
 
   private
@@ -70,4 +86,9 @@ class Robot
     (x >= 1 && x <= 5 && y >= 1 && y <= 5 && ['NORTH', 'SOUTH', 'EAST', 'WEST'].include?(facing))
   end
 
+  def invalid_move
+    puts ''
+    puts "*** The robot can't move in that direction or it will fall off the table! ***"
+    puts ''
+  end
 end
