@@ -29,6 +29,6 @@ QUIT
 
 Ensure you have Git and Ruby installed. Then in a console execute the following commands:
 
-git clone git://github.com/cullenjett/toy_robot.git
+git clone https://github.com/cullenjett/toy_robot.git
 cd toy_robot
 ruby toy_robot.rb
