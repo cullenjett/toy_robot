@@ -21,7 +21,7 @@ class ToyRobot
 
   def set_robot
     puts ''
-    puts "=> Where would you like to place your robot? ex: 2, 3, NORTH (no parenthesis, spaces optional)"
+    puts "=> Where would you like to place your robot? ex: 2, 3, NORTH (no parentheses, spaces optional)"
     player_input = gets.chomp.upcase.split(',').each(&:strip!)
     x_pos = player_input[0].to_i
     y_pos = player_input[1].to_i
